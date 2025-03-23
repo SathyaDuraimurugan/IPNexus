@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Guide - IPMarket</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a6fdc;
+            --primary-dark: #3a5abb;
+            --secondary-color: #34c759;
+            --accent-color: #f7b731;
+            --text-color: #333333;
+            --text-light: #666666;
+            --light-bg: #f5f7fa;
+            --white: #ffffff;
+            --dark: #222222;
+            --border-color: #e1e4e8;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo a {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 12px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 15px;
+            transition: var(--transition);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        nav ul li a.active {
+            color: var(--primary-color);
+        }
+
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 15px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: var(--white);
+            color: var(--text-color);
+            padding: 60px 0;
+            position: relative;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/api/placeholder/1200/400');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+
+        .hero-content h1 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--dark);
+        }
+
+        .hero-content h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            background-color: var(--white);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .breadcrumb-list {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .breadcrumb-list li {
+            font-size: 14px;
+        }
+
+        .breadcrumb-list li:not(:last-child)::after {
+            content: '>';
+            margin: 0 10px;
+            color: var(--text-light);
+        }
+
+        .breadcrumb-list li a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb-list li a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb-list li:last-child {
+            color: var(--text-light);
+        }
+
+        /* Main Content */
+        section {
+            padding: 60px 0;
+        }
+
+        section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--dark);
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .pricing-intro {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+
+        .pricing-intro p {
+            color: var(--text-light);
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        /* Pricing Models */
+        .pricing-models {
+            background-color: var(--white);
+        }
+
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .model-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .model-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        .model-icon {
+            font-size: 30px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .model-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .model-card p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .model-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .model-features li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .model-features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        /* Pricing Factors */
+        .pricing-factors {
+            background-color: var(--light-bg);
+        }
+
+        .factors-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .factor-item {
+            background-color: var(--white);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .factor-item:hover {
+            transform: translateX(5px);
+        }
+
+        .factor-item h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+        }
+
+        .factor-item h3 i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .factor-item p {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        /* Commission Table */
+        .commission-section {
+            background-color: var(--white);
+        }
+
+        .commission-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .commission-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .commission-table th, .commission-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .commission-table th {
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .commission-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .commission-table tr:nth-child(even) {
+            background-color: rgba(74, 111, 220, 0.05);
+        }
+
+        .commission-table tr:hover {
+            background-color: rgba(74, 111, 220, 0.1);
+        }
+
+        .commission-note {
+            background-color: rgba(74, 111, 220, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .commission-note p {
+            color: var(--text-light);
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        /* Tools Section */
+        .tools-section {
+            background-color: var(--light-bg);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tool-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        .tool-icon {
+            font-size: 24px;
+            color: var(--white);
+            width: 45px;
+            height: 45px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .tool-content h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .tool-content p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(rgba(74, 111, 220, 0.9), rgba(58, 90, 187, 0.9)), url('/api/placeholder/1200/400');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .cta-content h2::after {
+            background-color: var(--white);
+        }
+
+        .cta-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .btn-light {
+            background-color: var(--white);
+            color: var(--primary-color);
+            border: 2px solid var(--white);
+        }
+
+        .btn-light:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 60px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header .container {
+                flex-wrap: wrap;
+            }
+
+            nav {
+                order: 3;
+                width: 100%;
+                margin-top: 15px;
+                display: none;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 8px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .auth-buttons {
+                margin-left: auto;
+            }
+
+            .hero-content h1 {
+                font-size: 28px;
+            }
+
+            section h2 {
+                font-size: 26px;
+            }
+
+            .commission-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">IPMarket</a>
+            </div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="browse.html">Browse</a></li>
+                    <li><a href="register-ip.html">Register IP</a></li>
+                    <li><a href="sell.html">Sell</a></li>
+                    <li><a href="buy.html">Buy</a></li>
+                    <li><a href="pricing.html" class="active">Pricing</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ul class="breadcrumb-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sell.html">Sell</a></li>
+                <li>Pricing Guide</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>IP <span>Pricing Guide</span></h1>
+                <p>Learn how to price your intellectual property strategically to maximize value and attract the right buyers in our global marketplace.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Models -->
+    <section class="pricing-models">
+        <div class="container">
+            <h2>Pricing Models</h2>
+            <div class="pricing-intro">
+                <p>Choosing the right pricing model is crucial for successfully monetizing your intellectual property. IPMarket supports multiple approaches to meet different seller needs and IP types.</p>
+            </div>
+            <div class="models-grid">
+                <div class="model-card">
+                    <div class="model-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Full Transfer</h3>
+                    <p>Complete sale of all rights to your intellectual property with a one-time payment.</p>
+                    <ul class="model-features">
+                        <li>Highest upfront value</li>
+                        <li>Clean exit strategy</li>
+                        <li>No ongoing obligations</li>
+                        <li>Ideal for patents and software</li>
+                    </ul>
+                </div>
+                <div class="model-card">
+                    <div class="model-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Exclusive Licensing</h3>
+                    <p>Grant exclusive rights to a single licensee while retaining ownership.</p>
+                    <ul class="model-features">
+                        <li>Premium pricing potential</li>
+                        <li>Defined scope and duration</li>
+                        <li>Geographic restrictions possible</li>
+                        <li>Ideal for trademarks and creative works</li>
+                    </ul>
+                </div>
+                <div class="model-card">
+                    <div class="model-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Non-Exclusive Licensing</h3>
+                    <p>License your IP to multiple buyers simultaneously for recurring revenue.</p>
+                    <ul class="model-features">
+                        <li>Broader market reach</li>
+                        <li>Recurring revenue streams</li>
+                        <li>Lower individual license cost</li>
+                        <li>Ideal for digital assets and content</li>
+                    </ul>
+                </div>
+                <div class="model-card">
+                    <div class="model-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3>Royalty-Based</h3>
+                    <p>Earn ongoing payments based on the commercial performance of your IP.</p>
+                    <ul class="model-features">
+                        <li>Performance-linked income</li>
+                        <li>Potential for unlimited upside</li>
+                        <li>Lower upfront cost for buyers</li>
+                        <li>Ideal for entertainment IP and patents</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Factors -->
+    <section class="pricing-factors">
+        <div class="container">
+            <h2>Key Pricing Factors</h2>
+            <div class="pricing-intro">
+                <p>Multiple factors influence the appropriate pricing for your intellectual property. Consider these elements when determining your price point.</p>
+            </div>
+            <div class="factors-container">
+                <div class="factor-item">
+                    <h3><i class="fas fa-search-dollar"></i> Market Demand</h3>
+                    <p>Assess the current and projected demand for your type of IP. High-demand areas like AI technology, renewable energy solutions, or unique entertainment content often command premium pricing. Research comparable sales on our platform for benchmarks.</p>
+                </div>
+                <div class="factor-item">
+                    <h3><i class="fas fa-shield-alt"></i> Protection Strength</h3>
+                    <p>The strength and scope of your legal protection significantly impacts value. Issued patents with broad claims, registered trademarks with established recognition, and copyrighted works with clear originality carry higher value than pending applications or narrowly protected IP.</p>
+                </div>
+                <div class="factor-item">
+                    <h3><i class="fas fa-chart-line"></i> Growth Potential</h3>
+                    <p>IP with clear expansion possibilities into new markets, applications, or derivative works commands higher prices. Demonstrate how your IP can scale or adapt to future trends to justify premium pricing.</p>
+                </div>
+                <div class="factor-item">
+                    <h3><i class="fas fa-industry"></i> Industry Standards</h3>
+                    <p>Different industries have established pricing norms. Software typically uses different models than entertainment content or manufacturing innovations. Our category-specific guides provide detailed industry benchmarks.</p>
+                </div>
+                <div class="factor-item">
+                    <h3><i class="fas fa-history"></i> Development Stage</h3>
+                    <p>Commercialization-ready IP with proven implementation commands higher prices than conceptual or early-stage innovations. Demonstrate your IP's maturity with prototypes, beta versions, or implementation examples when possible.</p>
+                </div>
+                <div class="factor-item">
+                    <h3><i class="fas fa-coins"></i> Development Costs</h3>
+                    <p>Your investment in creating and protecting the IP provides a baseline value consideration. Document research costs, registration fees, and development expenses to support your pricing strategy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commission Structure -->
+    <section class="commission-section">
+        <div class="container">
+            <h2>IPMarket Commission Structure</h2>
+            <div class="pricing-intro">
+                <p>Our transparent commission system ensures fair pricing while maintaining platform quality. Commissions are calculated based on final transaction value.</p>
+            </div>
+            <div class="commission-container">
+                <table class="commission-table">
+                    <thead>
+                        <tr>
+                            <th>Transaction Value</th>
+                            <th>Commission Rate</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Under $1,000</td>
+                            <td>15%</td>
+                            <td>Minimum fee: $50</td>
+                        </tr>
+                        <tr>
+                            <td>$1,000 - $10,000</td>
+                            <td>12%</td>
+                            <td>Standard rate for most transactions</td>
+                        </tr>
+                        <tr>
+                            <td>$10,001 - $50,000</td>
+                            <td>10%</td>
+                            <td>Includes basic legal documentation</td>
+                        </tr>
+                        <tr>
+                            <td>$50,001 - $100,000</td>
+                            <td>8%</td>
+                            <td>Includes enhanced marketing support</td>
+                        </tr>
+                        <tr>
+                            <td>$100,001 - $500,000</td>
+                            <td>6%</td>
+                            <td>Includes direct buyer matching</td>
+                        </tr>
+                        <tr>
+                            <td>Over $500,000</td>
+                            <td>5%</td>
+                            <td>Full concierge service with legal support</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="commission-note">
+                    <p><strong>Note:</strong> For ongoing royalty agreements, IPMarket charges a 5% commission on collected royalties for the first 3 years. Premium members receive a 2% commission discount across all tiers. Volume sellers with more than 10 successful transactions qualify for our loyalty program with further reduced rates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Tools -->
+    <section class="tools-section">
+        <div class="container">
+            <h2>Pricing Resources & Tools</h2>
+            <div class="pricing-intro">
+                <p>IPMarket provides multiple tools to help you determine optimal pricing for your intellectual property assets.</p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Pricing Calculator</h3>
+                        <p>Input your IP characteristics, protection status, and market factors to receive an estimated price range based on historical platform data.</p>
+                    </div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Market Analytics</h3>
+                        <p>Access trend data for your specific IP category, including average sale prices, licensing rates, and market demand insights.</p>
+                    </div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Expert Consultation</h3>
+                        <p>Schedule a call with our IP valuation specialists who provide personalized pricing guidance based on your specific situation.</p>
+                    </div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Industry Guides</h3>
+                        <p>Downloadable PDF guides with category-specific pricing strategies and benchmarks for different intellectual property types.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Monetize Your IP?</h2>
+                <p>Apply the pricing strategies from this guide to maximize your intellectual property's value in our global marketplace.</p>
+                <a href="register-ip.html" class="btn btn-light">List Your IP Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>IPNexus</h4>
+                    <p>The premier global marketplace for buying and selling intellectual property. Connecting innovators with businesses to accelerate growth and innovation worldwide.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="browse.html">Browse</a></li>
+                        <li><a href="register-ip.html">Register IP</a></li>
+                        <li><a href="sell.html">Sell</a></li>
+                        <li><a href="buy.html">Buy</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="guides.html">Guides</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span> xxx, yyy, zzz, India</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>0000000000</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@ipnexus.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 IPNexus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+

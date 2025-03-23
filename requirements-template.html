@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download IP Requirements Template - IPMarket</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a6fdc;
+            --primary-dark: #3a5abb;
+            --secondary-color: #34c759;
+            --text-color: #333333;
+            --text-light: #666666;
+            --light-bg: #f5f7fa;
+            --white: #ffffff;
+            --dark: #222222;
+            --border-color: #e1e4e8;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo a {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 12px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 15px;
+            transition: var(--transition);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+            min-height: calc(100vh - 220px);
+        }
+
+        .template-container {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .template-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .template-header h1 {
+            font-size: 28px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .template-header p {
+            color: var(--text-light);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .template-preview {
+            background: var(--light-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .preview-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .preview-icon {
+            font-size: 30px;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+
+        .preview-title h3 {
+            font-size: 18px;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .preview-title p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .preview-content {
+            background: var(--white);
+            border: 1px dashed var(--border-color);
+            border-radius: 5px;
+            padding: 15px;
+        }
+
+        .preview-content ul {
+            margin-left: 20px;
+            color: var(--text-light);
+        }
+
+        .preview-content ul li {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .download-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 16px;
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+
+        .format-options {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .format-option {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .format-option:hover {
+            color: var(--primary-color);
+        }
+
+        .format-option i {
+            margin-right: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-links {
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            header .container {
+                flex-wrap: wrap;
+            }
+
+            nav {
+                order: 3;
+                width: 100%;
+                margin-top: 15px;
+                display: none;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 8px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .template-container {
+                padding: 25px;
+            }
+
+            .template-header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">IPMarket</a>
+            </div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="browse.html">Browse</a></li>
+                    <li><a href="register-ip.html">Register IP</a></li>
+                    <li><a href="sell.html">Sell</a></li>
+                    <li><a href="buy.html">Buy</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <div class="template-container">
+                <div class="template-header">
+                    <h1>IP Requirements Template</h1>
+                    <p>This comprehensive template will help you define your intellectual property needs and streamline your search for the perfect IP assets.</p>
+                </div>
+
+                <div class="template-preview">
+                    <div class="preview-header">
+                        <div class="preview-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="preview-title">
+                            <h3>IP Requirements Checklist</h3>
+                            <p>A preview of what's included in the template</p>
+                        </div>
+                    </div>
+                    <div class="preview-content">
+                        <ul>
+                            <li><strong>Business Needs Assessment:</strong> Define your IP objectives and how they align with your business strategy</li>
+                            <li><strong>Technical Requirements:</strong> Specify compatibility needs, technology standards, and implementation considerations</li>
+                            <li><strong>Budget Planning:</strong> Structured approach to determine your investment range for IP acquisition</li>
+                            <li><strong>Legal Considerations:</strong> Checklist for evaluating licensing terms, restrictions, and compliance requirements</li>
+                            <li><strong>Implementation Timeline:</strong> Planning tools for integration and deployment schedules</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="download-section">
+                    <a href="#" class="btn btn-primary"><i class="fas fa-download"></i> Download Template</a>
+                    <div class="format-options">
+                        <a href="#" class="format-option"><i class="fas fa-file-word"></i> Word Format</a>
+                        <a href="#" class="format-option"><i class="fas fa-file-pdf"></i> PDF Format</a>
+                        <a href="#" class="format-option"><i class="fas fa-file-excel"></i> Excel Format</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 IPMarket. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="terms.html">Terms</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="contact.html">Contact</a>
+                <a href="faq.html">FAQ</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Toggle Mobile Menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+	

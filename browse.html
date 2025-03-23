@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Marketplace - IPMarket</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="browse-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">IPNexus</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="browse.html" class="active">Browse</a></li>
+                    <li><a href="register-ip.html">Register IP</a></li>
+                    <li><a href="sell.html">Sell</a></li>
+                    <li><a href="buy.html">Buy</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Marketplace Hero -->
+    <section class="marketplace-hero">
+        <div class="container">
+            <div class="marketplace-hero-content">
+                <h1>Browse Intellectual Property</h1>
+                <p>Discover and acquire intellectual property assets from creators worldwide.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Advanced Search & Filters -->
+    <section class="advanced-search">
+        <div class="container">
+            <div class="filter-container">
+                <div class="filter-panel">
+                    <h3>Filters</h3>
+                    
+                    <div class="filter-group">
+                        <h4>Categories</h4>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="category" value="art"> Art & Creative Works</label>
+                            <label><input type="checkbox" name="category" value="music"> Music & Audio</label>
+                            <label><input type="checkbox" name="category" value="patents"> Patents</label>
+                            <label><input type="checkbox" name="category" value="trademarks"> Trademarks</label>
+                            <label><input type="checkbox" name="category" value="software"> Software</label>
+                            <label><input type="checkbox" name="category" value="literature"> Literature</label>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>License Type</h4>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="license" value="exclusive"> Exclusive</label>
+                            <label><input type="checkbox" name="license" value="non-exclusive"> Non-Exclusive</label>
+                            <label><input type="checkbox" name="license" value="royalty"> Royalty-Based</label>
+                            <label><input type="checkbox" name="license" value="one-time"> One-Time Purchase</label>
+                            <label><input type="checkbox" name="license" value="transfer"> Full Transfer</label>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Price Range</h4>
+                        <div class="range-slider">
+                            <div class="price-inputs">
+                                <input type="number" id="min-price" placeholder="Min" min="0">
+                                <span>to</span>
+                                <input type="number" id="max-price" placeholder="Max">
+                            </div>
+                            <input type="range" id="price-range" min="0" max="100000" step="1000" value="50000">
+                        </div>
+                        <div class="price-presets">
+                            <button data-min="0" data-max="1000">$0-$1k</button>
+                            <button data-min="1000" data-max="5000">$1k-$5k</button>
+                            <button data-min="5000" data-max="20000">$5k-$20k</button>
+                            <button data-min="20000" data-max="100000">$20k+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Date Listed</h4>
+                        <div class="radio-group">
+                            <label><input type="radio" name="date" value="any" checked> Any time</label>
+                            <label><input type="radio" name="date" value="24h"> Last 24 hours</label>
+                            <label><input type="radio" name="date" value="week"> This week</label>
+                            <label><input type="radio" name="date" value="month"> This month</label>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Ratings</h4>
+                        <div class="rating-filter">
+                            <label><input type="checkbox" name="rating" value="4"> 4+ Stars</label>
+                            <label><input type="checkbox" name="rating" value="3"> 3+ Stars</label>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-buttons">
+                        <button id="apply-filters" class="btn btn-primary">Apply Filters</button>
+                        <button id="clear-filters" class="btn btn-outline">Clear All</button>
+                    </div>
+                </div>
+                
+                <div class="listings-container">
+                    <div class="listings-header">
+                        <div class="results-count">
+                            <p>Showing <strong>24</strong> of <strong>156</strong> listings</p>
+                        </div>
+                        <div class="sort-options">
+                            <label for="sort-by">Sort by:</label>
+                            <select id="sort-by">
+                                <option value="relevance">Relevance</option>
+                                <option value="recent">Most Recent</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="popular">Most Popular</option>
+                            </select>
+                        </div>
+                        <div class="view-options">
+                            <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+                            <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="listings-grid">
+                        <!-- IP Listing 1 -->
+                        <div class="ip-card">
+                            <div class="ip-card-image">
+                                <img src="/api/placeholder/300/200" alt="Patent Technology">
+                                <div class="category-badge">Patent</div>
+                                <div class="save-button"><i class="far fa-heart"></i></div>
+                            </div>
+                            <div class="ip-card-content">
+                                <h3><a href="ip-details.html">Advanced Battery Technology</a></h3>
+                                <p>Revolutionary energy storage solution with 40% more capacity compared to current market standards.</p>
+                                <div class="ip-meta">
+                                    <div class="ip-price">$75,000</div>
+                                    <div class="ip-license">Exclusive License</div>
+                                </div>
+                                <div class="ip-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span>(12 reviews)</span>
+                                </div>
+                                <a href="ip-details.html" class="btn btn-outline btn-full">View Details</a>
+                            </div>
+                        </div>
+                        
+                        <!-- IP Listing 2 -->
+                        <div class="ip-card">
+                            <div class="ip-card-image">
+                                <img src="/api/placeholder/300/200" alt="Music Collection">
+                                <div class="category-badge">Music</div>
+                                <div class="save-button"><i class="far fa-heart"></i></div>
+                            </div>
+                            <div class="ip-card-content">
+                                <h3><a href="ip-details.html">Ambient Music Collection</a></h3>
+                                <p>20 royalty-free ambient tracks for commercial use in advertisements, films, and digital content.</p>
+                                <div class="ip-meta">
+                                    <div class="ip-price">$2,500</div>
+                                    <div class="ip-license">Non-Exclusive</div>
+                                </div>
+                                <div class="ip-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span>(8 reviews)</span>
+                                </div>
+                                <a href="ip-details.html" class="btn btn-outline btn-full">View Details</a>
+                            </div>
+                        </div>
+                        
+                        <!-- IP Listing 3 -->
+                        <div class="ip-card">
+                            <div class="ip-card-image">
+                                <img src="/api/placeholder/300/200" alt="Trademark Brand">
+                                <div class="category-badge">Trademark</div>
+                                <div class="save-button saved"><i class="fas fa-heart"></i></div>
+                            </div>
+                            <div class="ip-card-content">
+                                <h3><a href="ip-details.html">"GreenTech" Brand & Logo</a></h3>
+                                <p>Established eco-friendly technology brand with international recognition and loyal customer base.</p>
+                                <div class="ip-meta">
+                                    <div class="ip-price">$45,000</div>
+                                    <div class="ip-license">Full Transfer</div>
+                                </div>
+                                <div class="ip-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span>(21 reviews)</span>
+                                </div>
+                                <a href="ip-details.html" class="btn btn-outline btn-full">View Details</a>
+                            </div>
+                        </div>
+                        
+                        <!-- IP Listing 4 -->
+                        <div class="ip-card">
+                            <div class="ip-card-image">
+                                <img src="/api/placeholder/300/200" alt="Software Tool">
+                                <div class="category-badge">Software</div>
+                                <div class="save-button"><i class="far fa-heart"></i></div>
+                            </div>
+                            <div class="ip-card-content">
+                                <h3><a href="ip-details.html">AI-Powered Data Analysis Tool</a></h3>
+                                <p>Machine learning algorithm for predictive analytics with extensive documentation and support.</p>
+                                <div class="ip-meta">
+                                    <div class="ip-price">$12,000</div>
+                                    <div class="ip-license">Royalty-Based</div>
+                                </div>
+                                <div class="ip-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span>(15 reviews)</span>
+                                </div>
+                                <a href="ip-details.html" class="btn btn-outline btn-full">View Details</a>
+                            </div>
+                        </div>
+                        
+                        <!-- IP Listing 5 -->
+                        <div class="ip-card">
+                            <div class="ip-card-image">
+                                <img src="/api/placeholder/300/200" alt="Book Series">
+                                <div class="category-badge">Literature</div>
+                                <div class="save-button"><i class="far fa-heart"></i></div>
+                            </div>
+                            <div class="ip-card-content">
+                                <h3><a href="ip-details.html">Fantasy Novel Series</a></h3>
+                                <p>Complete trilogy with world-building, character designs, and adaptation rights for film/TV.</p>
+                                <div class="ip-meta">
+                                    <div class="ip-price">$35,000</div>
+                                    <div class="ip-license">Exclusive</div>
+                                </div>
+                                <div class="ip-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span>(7 reviews)</span>
+                                </div>
+                                <a href="ip-details.html" class="btn btn-outline btn-full">View Details</a>
+                            </div>
+                        </div>
+                        
+                        <!-- IP Listing 6 -->
+                        <div class="ip-card">
+                            <div class="ip-card-image">
+                                <img src="/api/placeholder/300/200" alt="Design Collection">
+                                <div class="category-badge">Art</div>
+                                <div class="save-button"><i class="far fa-heart"></i></div>
+                            </div>
+                            <div class="ip-card-content">
+                                <h3><a href="ip-details.html">Modern Icon Pack</a></h3>
+                                <p>500+ vector icons in multiple formats with customization options for UI/UX designers.</p>
+                                <div class="ip-meta">
+                                    <div class="ip-price">$1,200</div>
+                                    <div class="ip-license">Non-Exclusive</div>
+                                </div>
+                                <div class="ip-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span>(32 reviews)</span>
+                                </div>
+                                <a href="ip-details.html" class="btn btn-outline btn-full">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pagination">
+                        <a href="#" class="active">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <span class="dots">...</span>
+                        <a href="#">7</a>
+                        <a href="#" class="next-page">Next <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>IPNexus</h3>
+                    <p>Your trusted marketplace for intellectual property trading, licensing, and monetization.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="browse.html">Browse Marketplace</a></li>
+                        <li><a href="register-ip.html">Register IP</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="licensing.html">Licensing Guidelines</a></li>
+                        <li><a href="copyright.html">Copyright Notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> contact@ipnexus.com</li>
+                        <li><i class="fas fa-phone"></i> 00000000000</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 -----,----<br>India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 IPNexus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script src="browse-scripts.js"></script>
+</body>
+</html>
+

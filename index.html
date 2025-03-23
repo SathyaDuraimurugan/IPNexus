@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPMarket - Intellectual Property Marketplace</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">IPNexus</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="browse.html">Browse</a></li>
+                    <li><a href="register-ip.html">Register IP</a></li>
+                    <li><a href="sell.html">Sell</a></li>
+                    <li><a href="buy.html">Buy</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Your Intellectual Property, <span>Monetized</span></h1>
+                <p>Buy, sell, and license intellectual property with secure, transparent transactions.</p>
+                <div class="hero-buttons">
+                    <a href="register-ip.html" class="btn btn-primary">Register Your IP</a>
+                    <a href="browse.html" class="btn btn-secondary">Explore Marketplace</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="/api/placeholder/600/400" alt="Intellectual Property Marketplace">
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Bar -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <form action="browse.html" method="get">
+                    <div class="search-input">
+                        <input type="text" placeholder="Search for intellectual property..." name="search">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="search-filters">
+                        <select name="category">
+                            <option value="">All Categories</option>
+                            <option value="art">Art & Creative Works</option>
+                            <option value="music">Music & Audio</option>
+                            <option value="patents">Patents</option>
+                            <option value="trademarks">Trademarks</option>
+                            <option value="software">Software</option>
+                            <option value="literature">Literature</option>
+                        </select>
+                        <select name="license">
+                            <option value="">All License Types</option>
+                            <option value="exclusive">Exclusive</option>
+                            <option value="non-exclusive">Non-Exclusive</option>
+                            <option value="royalty">Royalty-Based</option>
+                            <option value="one-time">One-Time Purchase</option>
+                        </select>
+                        <select name="price">
+                            <option value="">All Prices</option>
+                            <option value="0-1000">$0 - $1,000</option>
+                            <option value="1000-5000">$1,000 - $5,000</option>
+                            <option value="5000-20000">$5,000 - $20,000</option>
+                            <option value="20000-plus">$20,000+</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Listings -->
+    <section class="featured">
+        <div class="container">
+            <h2>Featured Intellectual Property</h2>
+            <div class="featured-grid">
+                <div class="featured-item">
+                    <div class="item-image">
+                        <img src="/api/placeholder/300/200" alt="Featured IP">
+                        <div class="category-badge">Patent</div>
+                    </div>
+                    <div class="item-details">
+                        <h3>Advanced Battery Technology</h3>
+                        <p>Revolutionary energy storage solution with 40% more capacity.</p>
+                        <div class="item-meta">
+                            <span class="price">$75,000</span>
+                            <span class="license">Exclusive License</span>
+                        </div>
+                        <a href="ip-details.html" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+                <div class="featured-item">
+                    <div class="item-image">
+                        <img src="/api/placeholder/300/200" alt="Featured IP">
+                        <div class="category-badge">Music</div>
+                    </div>
+                    <div class="item-details">
+                        <h3>Ambient Music Collection</h3>
+                        <p>20 royalty-free ambient tracks for commercial use.</p>
+                        <div class="item-meta">
+                            <span class="price">$2,500</span>
+                            <span class="license">Non-Exclusive</span>
+                        </div>
+                        <a href="ip-details.html" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+                <div class="featured-item">
+                    <div class="item-image">
+                        <img src="/api/placeholder/300/200" alt="Featured IP">
+                        <div class="category-badge">Trademark</div>
+                    </div>
+                    <div class="item-details">
+                        <h3>"GreenTech" Brand & Logo</h3>
+                        <p>Established eco-friendly technology brand with recognition.</p>
+                        <div class="item-meta">
+                            <span class="price">$45,000</span>
+                            <span class="license">Full Transfer</span>
+                        </div>
+                        <a href="ip-details.html" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+                <div class="featured-item">
+                    <div class="item-image">
+                        <img src="/api/placeholder/300/200" alt="Featured IP">
+                        <div class="category-badge">Software</div>
+                    </div>
+                    <div class="item-details">
+                        <h3>AI-Powered Data Analysis Tool</h3>
+                        <p>Machine learning algorithm for predictive analytics.</p>
+                        <div class="item-meta">
+                            <span class="price">$12,000</span>
+                            <span class="license">Royalty-Based</span>
+                        </div>
+                        <a href="ip-details.html" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all">
+                <a href="browse.html" class="btn btn-secondary">View All Listings</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>How IPMarket Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-upload"></i>
+                    </div>
+                    <h3>1. Register Your IP</h3>
+                    <p>Upload your intellectual property details, proof of ownership, and set your terms.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3>2. Set Your Price</h3>
+                    <p>Choose licensing options and price your IP competitively for the marketplace.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>3. Connect with Buyers</h3>
+                    <p>Our marketplace connects you with interested companies and individuals.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>4. Close the Deal</h3>
+                    <p>Secure transactions with automated licensing agreements and payment processing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Users Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"IPMarket helped me license my software patents to three different companies, generating consistent revenue streams."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="/api/placeholder/60/60" alt="Testimonial Author">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Software Engineer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"As a small business owner, finding the right trademarks to purchase was difficult until I discovered IPMarket. The process was seamless."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="/api/placeholder/60/60" alt="Testimonial Author">
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>Startup Founder</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"I've sold my music compositions to multiple production companies through IPMarket, expanding my reach far beyond my local network."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="/api/placeholder/60/60" alt="Testimonial Author">
+                        </div>
+                        <div class="author-info">
+                            <h4>Elena Rodriguez</h4>
+                            <p>Composer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <div class="slider-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Monetize Your Intellectual Property?</h2>
+                <p>Join thousands of creators and companies trading IP on our secure marketplace.</p>
+                <a href="signup.html" class="btn btn-primary">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>IPNexus</h3>
+                    <p>Your trusted marketplace for intellectual property trading, licensing, and monetization.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="browse.html">Browse Marketplace</a></li>
+                        <li><a href="register-ip.html">Register IP</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="licensing.html">Licensing Guidelines</a></li>
+                        <li><a href="copyright.html">Copyright Notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> contact@ipnexus.com</li>
+                        <li><i class="fas fa-phone"></i> 00000000000</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 -----,----<br>India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 IPNexus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    
+</body>
+</html>
+
